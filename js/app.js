@@ -8,7 +8,7 @@ const cw = canvas.width;
 const ch = canvas.height;
 
 const table = () => {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#0000ff";
     ctx.fillRect(0, 0, cw, ch);
 };
 
