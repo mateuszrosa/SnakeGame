@@ -10,6 +10,6 @@ const ch = canvas.height;
 const table = () => {
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, cw, ch);
-}
+};
 
 table();
