@@ -15,4 +15,6 @@ body {
     font-family: sans-serif;
 }
 
-canvas {}
+canvas {
+    border: 4px solid black;
+}
