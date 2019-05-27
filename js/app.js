@@ -24,7 +24,7 @@ const snake = () => {
 }
 
 const snakeMove = () => {
-    snakeWidthStart += 20;
+    snakeWidthStart += 10;
 }
 
 table();
