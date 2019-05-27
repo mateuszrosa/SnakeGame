@@ -28,11 +28,19 @@ const snakeMove = () => {
     console.log(snakeWidthStart, snakeWidth);
 }
 
+window.addEventListener('keydown', e => {
+    console.log(e.keyCode);
+    if (e.keyCode === 39) {
+        ctx.fillRect(snakeHeightStart, snakeWidthStart, snakeHeight, snakeWidth);
+    }
+})
+
 table();
 snake();
 
-setInterval(() => {
-    table();
-    snakeMove();
-    snake();
-}, 1000);
+// setInterval(() => {
+//     if ((snakeWidthStart + snakeWidth) >= cw) return;
+//     table();
+//     snakeMove();
+//     snake();
+// }, 200);
