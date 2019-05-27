@@ -31,7 +31,7 @@ table();
 snake();
 
 setInterval(() => {
-    if ((snakeWidthStart + snakeWidth) >= cw) {
+    if (snakeWidthStart >= cw) {
         snakeWidthStart = 0 - snakeWidth;
     }
     table();
