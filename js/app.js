@@ -10,6 +10,9 @@ const ch = canvas.height;
 const snakeWidth = 75;
 const snakeHeight = 20;
 
+let snakeWidthStart = 500;
+let snakeHeightStart = 200;
+
 const table = () => {
     ctx.fillStyle = "#0000ff";
     ctx.fillRect(0, 0, cw, ch);
@@ -17,8 +20,19 @@ const table = () => {
 
 const snake = () => {
     ctx.fillStyle = "black";
-    ctx.fillRect(500, 200, snakeWidth, snakeHeight);
+    ctx.fillRect(snakeWidthStart, snakeHeightStart, snakeWidth, snakeHeight);
+}
+
+const snakeMove = () => {
+    snakeWidthStart += 20;
+    console.log(snakeWidthStart, snakeWidth);
 }
 
 table();
 snake();
+
+setInterval(() => {
+    table();
+    snakeMove();
+    snake();
+}, 1000);
