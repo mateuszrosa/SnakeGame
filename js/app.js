@@ -12,3 +12,9 @@ const drawSnakePart = snakePart => {
     ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
     ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
 }
+
+const drawSnake = () => {
+    snake.forEach(drawSnakePart);
+}
+
+drawSnake();
