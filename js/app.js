@@ -24,6 +24,9 @@ const drawSnake = () => {
 }
 
 const advanceSnake = () => {
+    if (snake[0].x == 300) {
+        snake[0].x = 0;
+    }
     clearCanvas();
     dx = 10;
     dy = 0;
