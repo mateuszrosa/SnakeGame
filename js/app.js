@@ -41,11 +41,13 @@ const clearCanvas = () => {
 
 drawSnake();
 
+const main = () => {
+    setTimeout(() => {
+        clearCanvas();
+        advanceSnake();
+        drawSnake();
+        main();
+    }, 100)
+};
 
-clearCanvas();
-advanceSnake();
-advanceSnake();
-advanceSnake();
-advanceSnake();
-advanceSnake();
-drawSnake();
+main();
