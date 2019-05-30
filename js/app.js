@@ -27,7 +27,6 @@ const advanceSnake = () => {
     if (snake[0].x == 300) {
         snake[0].x = 0;
     }
-    clearCanvas();
     dx = 10;
     dy = 0;
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
