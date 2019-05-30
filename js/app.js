@@ -33,6 +33,8 @@ const advanceSnake = () => {
         snake[0].x = 300;
     } else if (snake[0].y == 0) {
         snake[0].y = 300;
+    } else if (snake[0].y == 300) {
+        snake[0].y = 0;
     }
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
