@@ -46,8 +46,6 @@ const clearCanvas = () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-drawSnake();
-
 const main = () => {
     setTimeout(() => {
         clearCanvas();
