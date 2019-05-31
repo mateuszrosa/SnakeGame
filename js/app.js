@@ -29,7 +29,7 @@ const drawSnake = () => {
 const advanceSnake = () => {
     if (snake[0].x == 300) {
         snake[0].x = 0;
-    } else if (snake[0].x == 0) {
+    } else if (snake[0].x < 0) {
         snake[0].x = 300;
     } else if (snake[0].y == 0) {
         snake[0].y = 300;
