@@ -86,6 +86,10 @@ const changeDirection = event => {
     }
 }
 
+const randomTen = (min, max) => {
+    return Math.round((Math.random() * (max - min) / 10) * 10);
+}
+
 document.addEventListener('keydown', changeDirection);
 
 main();
