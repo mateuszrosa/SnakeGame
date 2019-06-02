@@ -90,6 +90,11 @@ const randomTen = (min, max) => {
     return Math.round((Math.random() * (max - min) / 10) * 10);
 }
 
+const createFood = () => {
+    foodX = randomTen(0, canvas.width - 10);
+    foodY = randomTen(0, canvas.height - 10);
+}
+
 document.addEventListener('keydown', changeDirection);
 
 main();
