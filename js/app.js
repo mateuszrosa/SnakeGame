@@ -52,6 +52,7 @@ const clearCanvas = () => {
 const main = () => {
     setTimeout(() => {
         clearCanvas();
+        drawFood();
         advanceSnake();
         drawSnake();
         main();
