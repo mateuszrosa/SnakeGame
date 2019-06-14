@@ -105,6 +105,13 @@ snake.forEach(
     }
 )
 
+const drawFood = () => {
+    ctx.fillStyle = 'red';
+    ctx.strokestyle = 'darkred';
+    ctx.fillRect(foodX, foodY, 10, 10);
+    ctx.strokeRect(foodX, foodY, 10, 10);
+}
+
 document.addEventListener('keydown', changeDirection);
 
 main();
