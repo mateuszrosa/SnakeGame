@@ -102,9 +102,13 @@ const createFood = () => {
 snake.forEach(
     function isFoodOnSnake(part) {
         const foodIsOnSnake = part.x == foodX && part.y == foodY;
-        if (foodIsOnSnake) createFood();
+        console.log(foodIsOnSnake);
+        if (foodIsOnSnake) {
+            createFood();
+        }
     }
 )
+
 
 const drawFood = () => {
     ctx.fillStyle = 'red';
@@ -116,3 +120,4 @@ const drawFood = () => {
 document.addEventListener('keydown', changeDirection);
 
 main();
+createFood()
