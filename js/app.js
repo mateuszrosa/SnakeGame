@@ -41,7 +41,14 @@ const advanceSnake = () => {
     }
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
-    snake.pop();
+    const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
+    if (didEatFood) {
+        console.log('owrk');
+        createFood();
+    } else {
+        snake.pop();
+        console.log('work');
+    }
 }
 
 const clearCanvas = () => {
