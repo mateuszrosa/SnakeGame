@@ -43,11 +43,9 @@ const advanceSnake = () => {
     snake.unshift(head);
     const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
     if (didEatFood) {
-        console.log('owrk');
         createFood();
     } else {
         snake.pop();
-        console.log('work');
     }
 }
 
@@ -80,12 +78,10 @@ const changeDirection = event => {
     if (keyPressed === left_key && !goingRight) {
         dx = -10;
         dy = 0;
-        console.log(dx, dy);
     }
     if (keyPressed === up_key && !goingDown) {
         dx = 0;
         dy = -10;
-        console.log(dx, dy);
     }
     if (keyPressed === right_key && !goingLeft) {
         dx = 10;
@@ -98,7 +94,8 @@ const changeDirection = event => {
 }
 
 const randomTen = (min, max) => {
-    return Math.round((Math.random() * (max - min) / 10) * 10);
+    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+
 }
 
 const createFood = () => {
@@ -109,7 +106,6 @@ const createFood = () => {
 snake.forEach(
     function isFoodOnSnake(part) {
         const foodIsOnSnake = part.x == foodX && part.y == foodY;
-        console.log(foodIsOnSnake);
         if (foodIsOnSnake) {
             createFood();
         }
@@ -127,4 +123,5 @@ const drawFood = () => {
 document.addEventListener('keydown', changeDirection);
 
 main();
-createFood()
+createFood();
+console.log(foodX, foodY);
