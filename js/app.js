@@ -12,6 +12,8 @@ let foodY;
 
 let changingDirection = false;
 
+let score = 0;
+
 let snake = [
     { x: 150, y: 150 },
     { x: 140, y: 150 },
@@ -46,6 +48,8 @@ const advanceSnake = () => {
     const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
     if (didEatFood) {
         createFood();
+        score += 10;
+        console.log(score);
     } else {
         snake.pop();
     }
@@ -131,4 +135,3 @@ document.addEventListener('keydown', changeDirection);
 
 main();
 createFood();
-console.log(foodX, foodY);
