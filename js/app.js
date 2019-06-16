@@ -10,6 +10,8 @@ let dy = 0;
 let foodX;
 let foodY;
 
+let changingDirection = false;
+
 let snake = [
     { x: 150, y: 150 },
     { x: 140, y: 150 },
@@ -56,6 +58,7 @@ const clearCanvas = () => {
 
 const main = () => {
     setTimeout(() => {
+        changingDirection = false;
         clearCanvas();
         drawFood();
         advanceSnake();
@@ -70,6 +73,10 @@ const changeDirection = event => {
     const right_key = 39;
     const up_key = 38;
     const down_key = 40;
+
+    if (changingDirection) return;
+    changingDirection = true;
+
     const keyPressed = event.keyCode;
     const goingUp = dy === -10;
     const goingDown = dy === 10;
