@@ -34,20 +34,6 @@ const drawSnake = () => {
 }
 
 const advanceSnake = () => {
-    if (snake[0].x + 10 === canvas.width) {
-        // console.log(snake[0].x);
-        // snake[0].x = 0;
-        return;
-    } else if (snake[0].x - 10 < 0) {
-        // snake[0].x = 300;
-        return;
-    } else if (snake[0].y - 10 < 0) {
-        // snake[0].y = 300;
-        return;
-    } else if (snake[0].y + 10 == canvas.height) {
-        // snake[0].y = 0;
-        return;
-    }
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
     const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
@@ -72,6 +58,7 @@ const main = () => {
         drawFood();
         advanceSnake();
         drawSnake();
+        if (endGame()) return;
         main();
     }, 100)
 };
@@ -134,6 +121,21 @@ const drawFood = () => {
     ctx.strokestyle = 'darkred';
     ctx.fillRect(foodX, foodY, 10, 10);
     ctx.strokeRect(foodX, foodY, 10, 10);
+}
+
+const endGame = () => {
+    for (let i = 4; i < snake.length; i++) {
+        const didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
+        if (didCollide) {
+            return true;
+        }
+        const hitLeftWall = snake[0].x < 0;
+        const hitRightWall = snake[0].x > canvas.width - 10;
+        const hitTopWall = snake[0].y < 0;
+        const hitBottomWall = snake[0].y > canvas.height - 10;
+
+        return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
+    }
 }
 
 document.addEventListener('keydown', changeDirection);
