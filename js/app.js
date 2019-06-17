@@ -34,14 +34,19 @@ const drawSnake = () => {
 }
 
 const advanceSnake = () => {
-    if (snake[0].x == 300) {
-        snake[0].x = 0;
-    } else if (snake[0].x < 0) {
-        snake[0].x = 300;
-    } else if (snake[0].y < 0) {
-        snake[0].y = 300;
-    } else if (snake[0].y == 300) {
-        snake[0].y = 0;
+    if (snake[0].x + 10 === canvas.width) {
+        // console.log(snake[0].x);
+        // snake[0].x = 0;
+        return;
+    } else if (snake[0].x - 10 < 0) {
+        // snake[0].x = 300;
+        return;
+    } else if (snake[0].y - 10 < 0) {
+        // snake[0].y = 300;
+        return;
+    } else if (snake[0].y + 10 == canvas.height) {
+        // snake[0].y = 0;
+        return;
     }
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
