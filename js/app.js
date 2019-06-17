@@ -40,6 +40,7 @@ const advanceSnake = () => {
     if (didEatFood) {
         createFood();
         score += 10;
+        document.querySelector('.score').style.display = "block";
         document.querySelector('.score').textContent = `${score}`;
     } else {
         snake.pop();
