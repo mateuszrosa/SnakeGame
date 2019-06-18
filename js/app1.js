@@ -18,6 +18,17 @@ class Snake {
             { x: 120, y: 150 },
             { x: 110, y: 150 },
         ];
+
+        this.drawSnake();
+    }
+    drawSnakePart = snakePart => {
+        this.ctx.fillStyle = 'lightgreen';
+        this.ctx.strokestyle = 'darkgreen';
+        this.ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+        this.ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+    }
+    drawSnake = () => {
+        this.snake.forEach(this.drawSnakePart);
     }
 }
 
