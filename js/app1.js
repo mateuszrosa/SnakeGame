@@ -20,6 +20,7 @@ class Snake {
         ];
 
         this.drawSnake();
+        this.advanceSnake();
     }
     drawSnakePart = snakePart => {
         this.ctx.fillStyle = 'lightgreen';
@@ -29,6 +30,23 @@ class Snake {
     }
     drawSnake = () => {
         this.snake.forEach(this.drawSnakePart);
+    }
+    advanceSnake = () => {
+        const head = { x: this.snake[0].x + this.dx, y: this.snake[0].y + this.dy };
+        this.snake.unshift(head);
+        const didEatFood = this.snake[0].x === this.foodX && this.snake[0].y === this.foodY;
+        if (didEatFood) {
+            // createFood();
+            score += 10;
+            document.querySelector('.score').style.display = "block";
+            document.querySelector('.score').textContent = `${score}`;
+        } else {
+            this.snake.pop();
+        }
+    }
+    clearCanvas = () => {
+        this.ctx.fillStyle = "white";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
