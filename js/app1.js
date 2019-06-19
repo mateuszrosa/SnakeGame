@@ -56,6 +56,37 @@ class Snake {
             this.main();
         }, 100)
     }
+    changeDirection = event => {
+        const left_key = 37;
+        const right_key = 39;
+        const up_key = 38;
+        const down_key = 40;
+
+        if (changingDirection) return;
+        changingDirection = true;
+
+        const keyPressed = event.keyCode;
+        const goingUp = dy === -10;
+        const goingDown = dy === 10;
+        const goingRight = dx === 10;
+        const goingLeft = dx === -10;
+        if (keyPressed === left_key && !goingRight) {
+            dx = -10;
+            dy = 0;
+        }
+        if (keyPressed === up_key && !goingDown) {
+            dx = 0;
+            dy = -10;
+        }
+        if (keyPressed === right_key && !goingLeft) {
+            dx = 10;
+            dy = 0;
+        }
+        if (keyPressed === down_key && !goingUp) {
+            dx = 0;
+            dy = 10;
+        }
+    }
 }
 
 const snake = new Snake();
