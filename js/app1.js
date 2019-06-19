@@ -19,6 +19,8 @@ class Snake {
             { x: 110, y: 150 },
         ];
 
+        document.addEventListener('keydown', this.changeDirection);
+
         this.drawSnake();
         this.main();
     }
@@ -62,29 +64,29 @@ class Snake {
         const up_key = 38;
         const down_key = 40;
 
-        if (changingDirection) return;
-        changingDirection = true;
+        // if (this.changingDirection) return;
+        // this.changingDirection = true;
 
         const keyPressed = event.keyCode;
-        const goingUp = dy === -10;
-        const goingDown = dy === 10;
-        const goingRight = dx === 10;
-        const goingLeft = dx === -10;
+        const goingUp = this.dy === -10;
+        const goingDown = this.dy === 10;
+        const goingRight = this.dx === 10;
+        const goingLeft = this.dx === -10;
         if (keyPressed === left_key && !goingRight) {
-            dx = -10;
-            dy = 0;
+            this.dx = -10;
+            this.dy = 0;
         }
         if (keyPressed === up_key && !goingDown) {
-            dx = 0;
-            dy = -10;
+            this.dx = 0;
+            this.dy = -10;
         }
         if (keyPressed === right_key && !goingLeft) {
-            dx = 10;
-            dy = 0;
+            this.dx = 10;
+            this.dy = 0;
         }
         if (keyPressed === down_key && !goingUp) {
-            dx = 0;
-            dy = 10;
+            this.dx = 0;
+            this.dy = 10;
         }
     }
 }
