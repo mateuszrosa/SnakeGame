@@ -20,7 +20,7 @@ class Snake {
         ];
 
         this.drawSnake();
-        this.advanceSnake();
+        this.main();
     }
     drawSnakePart = snakePart => {
         this.ctx.fillStyle = 'lightgreen';
@@ -47,6 +47,14 @@ class Snake {
     clearCanvas = () => {
         this.ctx.fillStyle = "white";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    main = () => {
+        setTimeout(() => {
+            this.clearCanvas();
+            this.advanceSnake();
+            this.drawSnake();
+            this.main();
+        }, 100)
     }
 }
 
