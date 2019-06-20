@@ -22,6 +22,7 @@ class Snake {
         document.addEventListener('keydown', this.changeDirection);
 
         this.drawSnake();
+        this.createFood();
         this.main();
     }
     drawSnakePart = snakePart => {
@@ -54,6 +55,7 @@ class Snake {
         setTimeout(() => {
             this.clearCanvas();
             this.advanceSnake();
+            this.drawFood();
             this.drawSnake();
             this.main();
         }, 100)
