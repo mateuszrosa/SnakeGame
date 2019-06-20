@@ -89,6 +89,10 @@ class Snake {
             this.dy = 10;
         }
     }
+    randomTen = (min, max) => {
+        return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+
+    }
 }
 
 const snake = new Snake();
