@@ -97,6 +97,12 @@ class Snake {
         this.foodX = this.randomTen(0, this.canvas.width - 10);
         this.foodY = this.randomTen(0, this.canvas.height - 10);
     }
+    drawFood = () => {
+        this.ctx.fillStyle = 'red';
+        this.ctx.strokestyle = 'darkred';
+        this.ctx.fillRect(this.foodX, this.foodY, 10, 10);
+        this.ctx.strokeRect(this.foodX, this.foodY, 10, 10);
+    }
 }
 
 const snake = new Snake();
