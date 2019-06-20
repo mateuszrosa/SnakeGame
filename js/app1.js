@@ -93,6 +93,10 @@ class Snake {
         return Math.round((Math.random() * (max - min) + min) / 10) * 10;
 
     }
+    createFood = () => {
+        this.foodX = this.randomTen(0, this.canvas.width - 10);
+        this.foodY = this.randomTen(0, this.canvas.height - 10);
+    }
 }
 
 const snake = new Snake();
