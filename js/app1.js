@@ -59,6 +59,7 @@ class Snake {
             this.advanceSnake();
             this.drawFood();
             this.drawSnake();
+            if (this.endGame()) return;
             this.main();
         }, 100)
     }
@@ -114,6 +115,20 @@ class Snake {
         this.ctx.strokestyle = 'darkred';
         this.ctx.fillRect(this.foodX, this.foodY, 10, 10);
         this.ctx.strokeRect(this.foodX, this.foodY, 10, 10);
+    }
+    endGame = () => {
+        for (let i = 4; i < this.snake.length; i++) {
+            const didCollide = this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y;
+            if (didCollide) {
+                return true;
+            }
+            const hitLeftWall = this.snake[0].x < 0;
+            const hitRightWall = this.snake[0].x > this.canvas.width - 10;
+            const hitTopWall = this.snake[0].y < 0;
+            const hitBottomWall = this.snake[0].y > this.canvas.height - 10;
+
+            return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
+        }
     }
 }
 
