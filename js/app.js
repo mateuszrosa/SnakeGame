@@ -107,10 +107,8 @@ const createFood = () => {
     foodY = randomTen(0, canvas.height - 10);
     snake.forEach(
         function isFoodOnSnake(part) {
-            console.log('test');
-            const foodIsOnSnake = part.x == this.foodX && part.y == this.foodY;
+            const foodIsOnSnake = part.x == foodX && part.y == foodY;
             if (foodIsOnSnake) {
-                console.log('jest');
                 createFood();
             }
         }
