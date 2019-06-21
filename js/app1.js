@@ -39,7 +39,7 @@ class Snake {
         this.snake.unshift(head);
         const didEatFood = this.snake[0].x === this.foodX && this.snake[0].y === this.foodY;
         if (didEatFood) {
-            // createFood();
+            this.createFood();
             this.score += 10;
             document.querySelector('.score').style.display = "block";
             document.querySelector('.score').textContent = `${this.score}`;
