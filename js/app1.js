@@ -54,6 +54,7 @@ class Snake {
     }
     main = () => {
         setTimeout(() => {
+            this.changingDirection = false;
             this.clearCanvas();
             this.advanceSnake();
             this.drawFood();
@@ -67,8 +68,8 @@ class Snake {
         const up_key = 38;
         const down_key = 40;
 
-        // if (this.changingDirection) return;
-        // this.changingDirection = true;
+        if (this.changingDirection) return;
+        this.changingDirection = true;
 
         const keyPressed = event.keyCode;
         const goingUp = this.dy === -10;
@@ -103,7 +104,6 @@ class Snake {
             this.isFoodOnSnake = part => {
                 const foodIsOnSnake = part.x == this.foodX && part.y == this.foodY;
                 if (foodIsOnSnake) {
-                    console.log('jest');
                     this.createFood();
                 }
             }
