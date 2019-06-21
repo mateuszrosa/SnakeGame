@@ -8,6 +8,7 @@ class Snake {
         this.dy = 0;
         this.foodX;
         this.foodY;
+        this.isFoodOnSnake;
         this.changingDirection = false;
         this.score = 0;
 
@@ -98,6 +99,15 @@ class Snake {
     createFood = () => {
         this.foodX = this.randomTen(0, this.canvas.width - 10);
         this.foodY = this.randomTen(0, this.canvas.height - 10);
+        this.snake.forEach(
+            this.isFoodOnSnake = part => {
+                const foodIsOnSnake = part.x == this.foodX && part.y == this.foodY;
+                if (foodIsOnSnake) {
+                    console.log('jest');
+                    this.createFood();
+                }
+            }
+        )
     }
     drawFood = () => {
         this.ctx.fillStyle = 'red';

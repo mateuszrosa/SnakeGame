@@ -105,16 +105,17 @@ const randomTen = (min, max) => {
 const createFood = () => {
     foodX = randomTen(0, canvas.width - 10);
     foodY = randomTen(0, canvas.height - 10);
-}
-
-snake.forEach(
-    function isFoodOnSnake(part) {
-        const foodIsOnSnake = part.x == foodX && part.y == foodY;
-        if (foodIsOnSnake) {
-            createFood();
+    snake.forEach(
+        function isFoodOnSnake(part) {
+            console.log('test');
+            const foodIsOnSnake = part.x == this.foodX && part.y == this.foodY;
+            if (foodIsOnSnake) {
+                console.log('jest');
+                createFood();
+            }
         }
-    }
-)
+    )
+}
 
 
 const drawFood = () => {
