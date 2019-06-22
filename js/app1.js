@@ -60,14 +60,10 @@ class Snake {
             this.drawFood();
             this.drawSnake();
             if (this.endGame()) {
-                alert("Lose");
-                this.snake = [
-                    { x: 150, y: 150 },
-                    { x: 140, y: 150 },
-                    { x: 130, y: 150 },
-                    { x: 120, y: 150 },
-                    { x: 110, y: 150 },
-                ];
+                console.log('eadas');
+                document.querySelector('.score').style.display = 'block';
+                document.querySelector('.score').textContent = `You lost!`;
+                return;
             }
             this.main();
         }, 100)
