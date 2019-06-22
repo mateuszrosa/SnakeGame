@@ -11,6 +11,10 @@ class Snake {
         this.isFoodOnSnake;
         this.changingDirection = false;
         this.score = 0;
+        this.start = document.querySelector('div.buttons > button:nth-child(1)');
+        this.start.addEventListener('click', () => {
+            this.main();
+        })
 
         this.snake = [
             { x: 150, y: 150 },
@@ -24,7 +28,6 @@ class Snake {
 
         this.drawSnake();
         this.createFood();
-        this.main();
     }
     drawSnakePart = snakePart => {
         this.ctx.fillStyle = 'lightgreen';
