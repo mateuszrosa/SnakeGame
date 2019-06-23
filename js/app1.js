@@ -12,8 +12,11 @@ class Snake {
         this.changingDirection = false;
         this.score = 0;
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
-        this.start.addEventListener('click', () => {
-            this.main();
+        this.start.addEventListener('click', e => {
+            if (e.target.textContent === "Start") {
+                this.main();
+                e.target.textContent = "Pause";
+            }
         })
 
         this.snake = [
@@ -63,7 +66,6 @@ class Snake {
             this.drawFood();
             this.drawSnake();
             if (this.endGame()) {
-                console.log('eadas');
                 document.querySelector('.score').style.display = 'block';
                 document.querySelector('.score').textContent = `You lost!`;
                 return;
