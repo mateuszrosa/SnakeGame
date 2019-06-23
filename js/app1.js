@@ -76,6 +76,7 @@ class Snake {
                 document.querySelector('.score').style.display = 'block';
                 document.querySelector('.score').textContent = `You lost!`;
                 this.start.textContent = "Play Again";
+                this.resetGame();
                 return;
             }
             this.main();
@@ -147,6 +148,15 @@ class Snake {
 
             return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
         }
+    }
+    resetGame = () => {
+        this.snake = [
+            { x: 150, y: 150 },
+            { x: 140, y: 150 },
+            { x: 130, y: 150 },
+            { x: 120, y: 150 },
+            { x: 110, y: 150 },
+        ];
     }
 }
 
