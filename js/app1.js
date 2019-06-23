@@ -11,11 +11,14 @@ class Snake {
         this.isFoodOnSnake;
         this.changingDirection = false;
         this.score = 0;
+        this.game;
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
         this.start.addEventListener('click', e => {
             if (e.target.textContent === "Start") {
                 this.main();
                 e.target.textContent = "Pause";
+            } else if (e.target.textContent == "Pause") {
+                clearTimeout(this.game);
             }
         })
 
@@ -59,7 +62,7 @@ class Snake {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
     main = () => {
-        setTimeout(() => {
+        this.game = setTimeout(() => {
             this.changingDirection = false;
             this.clearCanvas();
             this.advanceSnake();
