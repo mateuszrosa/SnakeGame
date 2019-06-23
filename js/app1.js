@@ -15,6 +15,10 @@ class Snake {
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
         this.start.addEventListener('click', e => {
             if (e.target.textContent === "Start" || e.target.textContent === "Play Again") {
+                if (e.target.textContent === "Play Again") {
+                    document.querySelector('.score').style.display = 'none';
+                    document.querySelector('.score').textContent = ``;
+                }
                 this.main();
                 e.target.textContent = "Pause";
             } else if (e.target.textContent === "Pause") {
