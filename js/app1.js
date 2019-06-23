@@ -14,13 +14,13 @@ class Snake {
         this.game;
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
         this.start.addEventListener('click', e => {
-            if (e.target.textContent === "Start") {
+            if (e.target.textContent === "Start" || e.target.textContent === "Play Again") {
                 this.main();
                 e.target.textContent = "Pause";
-            } else if (e.target.textContent == "Pause") {
+            } else if (e.target.textContent === "Pause") {
                 clearTimeout(this.game);
                 e.target.textContent = "Replay";
-            } else if (e.target.textContent == "Replay") {
+            } else if (e.target.textContent === "Replay") {
                 this.main();
                 e.target.textContent = "Pause";
             }
@@ -75,6 +75,7 @@ class Snake {
             if (this.endGame()) {
                 document.querySelector('.score').style.display = 'block';
                 document.querySelector('.score').textContent = `You lost!`;
+                this.start.textContent = "Play Again";
                 return;
             }
             this.main();
