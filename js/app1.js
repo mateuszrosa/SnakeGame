@@ -19,6 +19,10 @@ class Snake {
                 e.target.textContent = "Pause";
             } else if (e.target.textContent == "Pause") {
                 clearTimeout(this.game);
+                e.target.textContent = "Replay";
+            } else if (e.target.textContent == "Replay") {
+                this.main();
+                e.target.textContent = "Pause";
             }
         })
 
