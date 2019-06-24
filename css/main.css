@@ -20,7 +20,7 @@ canvas {
 
 .score {
     text-align: center;
-    font-size: 100px;
+    font-size: 80px;
     position: absolute;
     top: 150px;
     display: none;

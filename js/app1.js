@@ -78,7 +78,7 @@ class Snake {
             this.drawSnake();
             if (this.endGame()) {
                 document.querySelector('.score').style.display = 'block';
-                document.querySelector('.score').textContent = `You lost! Your result is ${this.score} points.`;
+                document.querySelector('.score').innerHTML = `You lost! Your result is <span>${this.score}</span> points.`;
                 this.start.textContent = "Play Again";
                 this.resetGame();
                 return;
