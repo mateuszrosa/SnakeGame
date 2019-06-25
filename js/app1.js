@@ -70,19 +70,19 @@ class Snake {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
     main = () => {
+        if (this.endGame()) {
+            document.querySelector('.score').style.display = 'block';
+            document.querySelector('.score').innerHTML = `You lost! Your result is <span>${this.score}</span> points.`;
+            this.start.textContent = "Play Again";
+            this.resetGame();
+            return;
+        }
         this.game = setTimeout(() => {
             this.changingDirection = false;
             this.clearCanvas();
             this.advanceSnake();
             this.drawFood();
             this.drawSnake();
-            if (this.endGame()) {
-                document.querySelector('.score').style.display = 'block';
-                document.querySelector('.score').innerHTML = `You lost! Your result is <span>${this.score}</span> points.`;
-                this.start.textContent = "Play Again";
-                this.resetGame();
-                return;
-            }
             this.main();
         }, 100)
     }
@@ -141,17 +141,17 @@ class Snake {
     }
     endGame = () => {
         for (let i = 4; i < this.snake.length; i++) {
-            const didCollide = this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y;
-            if (didCollide) {
+            if (this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y) {
                 return true;
             }
-            const hitLeftWall = this.snake[0].x < 0;
-            const hitRightWall = this.snake[0].x > this.canvas.width - 10;
-            const hitTopWall = this.snake[0].y < 0;
-            const hitBottomWall = this.snake[0].y > this.canvas.height - 10;
-
-            return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
         }
+        const hitLeftWall = this.snake[0].x < 0;
+        const hitRightWall = this.snake[0].x > this.canvas.width - 10;
+        const hitTopWall = this.snake[0].y < 0;
+        const hitBottomWall = this.snake[0].y > this.canvas.height - 10;
+
+        return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
+
     }
     resetGame = () => {
         this.snake = [
