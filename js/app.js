@@ -10,6 +10,8 @@ let dy = 0;
 let foodX;
 let foodY;
 
+const start = document.querySelector('div.buttons > button:nth-child(1)');
+
 let changingDirection = false;
 
 let score = 0;
@@ -54,6 +56,7 @@ const clearCanvas = () => {
 
 const main = () => {
     if (endGame()) {
+        console.log('end');
         document.querySelector('.score').style.display = 'block';
         document.querySelector('.score').innerHTML = `You lost! Your result is <span>${score}</span> points.`;
         start.textContent = "Play Again";
@@ -132,8 +135,7 @@ const drawFood = () => {
 
 const endGame = () => {
     for (let i = 4; i < snake.length; i++) {
-        const didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
-        if (didCollide) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
             return true;
         }
     }
@@ -146,7 +148,7 @@ const endGame = () => {
 
 }
 
-resetGame = () => {
+const resetGame = () => {
     score = 0;
     snake = [
         { x: 150, y: 150 },
