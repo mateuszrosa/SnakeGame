@@ -53,6 +53,13 @@ const clearCanvas = () => {
 }
 
 const main = () => {
+    if (endGame()) {
+        document.querySelector('.score').style.display = 'block';
+        document.querySelector('.score').innerHTML = `You lost! Your result is <span>${score}</span> points.`;
+        start.textContent = "Play Again";
+        resetGame();
+        return;
+    }
     setTimeout(() => {
         changingDirection = false;
         clearCanvas();
