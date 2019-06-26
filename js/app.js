@@ -15,6 +15,7 @@ const start = document.querySelector('div.buttons > button:nth-child(1)');
 let changingDirection = false;
 
 let score = 0;
+let game;
 
 let snake = [
     { x: 150, y: 150 },
@@ -63,13 +64,12 @@ const main = () => {
         resetGame();
         return;
     }
-    setTimeout(() => {
+    game = setTimeout(() => {
         changingDirection = false;
         clearCanvas();
         drawFood();
         advanceSnake();
         drawSnake();
-        if (endGame()) return;
         main();
     }, 100)
 };
