@@ -17,6 +17,23 @@ let changingDirection = false;
 let score = 0;
 let game;
 
+start.addEventListener('click', e => {
+    if (e.target.textContent === "Start" || e.target.textContent === "Play Again") {
+        if (e.target.textContent === "Play Again") {
+            document.querySelector('.score').style.display = 'none';
+            document.querySelector('.score').textContent = ``;
+        }
+        main();
+        e.target.textContent = "Pause";
+    } else if (e.target.textContent === "Pause") {
+        clearTimeout(game);
+        e.target.textContent = "Replay";
+    } else if (e.target.textContent === "Replay") {
+        main();
+        e.target.textContent = "Pause";
+    }
+})
+
 let snake = [
     { x: 150, y: 150 },
     { x: 140, y: 150 },
@@ -161,5 +178,5 @@ const resetGame = () => {
 
 document.addEventListener('keydown', changeDirection);
 
-main();
+drawSnake();
 createFood();
