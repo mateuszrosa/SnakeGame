@@ -136,7 +136,6 @@ const createFood = () => {
     )
 }
 
-
 const drawFood = () => {
     ctx.fillStyle = 'red';
     ctx.strokestyle = 'darkred';
