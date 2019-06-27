@@ -13,6 +13,15 @@ class Snake {
         this.score = 0;
         this.game;
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
+
+        this.snake = [
+            { x: 150, y: 150 },
+            { x: 140, y: 150 },
+            { x: 130, y: 150 },
+            { x: 120, y: 150 },
+            { x: 110, y: 150 },
+        ];
+
         this.start.addEventListener('click', e => {
             if (e.target.textContent === "Start" || e.target.textContent === "Play Again") {
                 if (e.target.textContent === "Play Again") {
@@ -29,17 +38,7 @@ class Snake {
                 e.target.textContent = "Pause";
             }
         })
-
-        this.snake = [
-            { x: 150, y: 150 },
-            { x: 140, y: 150 },
-            { x: 130, y: 150 },
-            { x: 120, y: 150 },
-            { x: 110, y: 150 },
-        ];
-
         document.addEventListener('keydown', this.changeDirection);
-
         this.drawSnake();
         this.createFood();
     }
@@ -68,23 +67,6 @@ class Snake {
     clearCanvas = () => {
         this.ctx.fillStyle = "white";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-    main = () => {
-        if (this.endGame()) {
-            document.querySelector('.score').style.display = 'block';
-            document.querySelector('.score').innerHTML = `You lost! Your result is <span>${this.score}</span> points.`;
-            this.start.textContent = "Play Again";
-            this.resetGame();
-            return;
-        }
-        this.game = setTimeout(() => {
-            this.changingDirection = false;
-            this.clearCanvas();
-            this.advanceSnake();
-            this.drawFood();
-            this.drawSnake();
-            this.main();
-        }, 100)
     }
     changeDirection = event => {
         const left_key = 37;
@@ -162,6 +144,23 @@ class Snake {
             { x: 120, y: 150 },
             { x: 110, y: 150 },
         ];
+    }
+    main = () => {
+        if (this.endGame()) {
+            document.querySelector('.score').style.display = 'block';
+            document.querySelector('.score').innerHTML = `You lost! Your result is <span>${this.score}</span> points.`;
+            this.start.textContent = "Play Again";
+            this.resetGame();
+            return;
+        }
+        this.game = setTimeout(() => {
+            this.changingDirection = false;
+            this.clearCanvas();
+            this.advanceSnake();
+            this.drawFood();
+            this.drawSnake();
+            this.main();
+        }, 100)
     }
 }
 
