@@ -1,19 +1,13 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-
 canvas.width = 300;
 canvas.height = 300;
-
 let dx = 10;
 let dy = 0;
-
 let foodX;
 let foodY;
-
 const start = document.querySelector('div.buttons > button:nth-child(1)');
-
 let changingDirection = false;
-
 let score = 0;
 let game;
 
