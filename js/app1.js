@@ -144,6 +144,8 @@ class Snake {
             { x: 120, y: 150 },
             { x: 110, y: 150 },
         ];
+        this.dx = 10;
+        this.dy = 0;
     }
     main = () => {
         if (this.endGame()) {
