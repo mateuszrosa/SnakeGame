@@ -12,6 +12,7 @@ class Snake {
         this.changingDirection = false;
         this.score = 0;
         this.game;
+        this.time = 100;
         this.start = document.querySelector('div.buttons > button:nth-child(1)');
 
         this.snake = [
@@ -60,6 +61,10 @@ class Snake {
             this.score += 10;
             document.querySelector('.score').style.display = "block";
             document.querySelector('.score').textContent = `${this.score}`;
+            if (this.score > 0 && this.score % 50 === 0) {
+                this.time = this.time - 10;
+            }
+
         } else {
             this.snake.pop();
         }
@@ -162,7 +167,7 @@ class Snake {
             this.drawFood();
             this.drawSnake();
             this.main();
-        }, 100)
+        }, this.time);
     }
 }
 
