@@ -62,7 +62,7 @@ class Snake {
             document.querySelector('.score').style.display = "block";
             document.querySelector('.score').textContent = `${this.score}`;
             if (this.score > 0 && this.score % 50 === 0) {
-                this.time = this.time - 10;
+                this.time = this.time - 5;
             }
 
         } else {
