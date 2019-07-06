@@ -10,6 +10,7 @@ const start = document.querySelector('div.buttons > button:nth-child(1)');
 let changingDirection = false;
 let score = 0;
 let game;
+let time = 100;
 
 start.addEventListener('click', e => {
     if (e.target.textContent === "Start" || e.target.textContent === "Play Again") {
@@ -56,6 +57,9 @@ const advanceSnake = () => {
         score += 10;
         document.querySelector('.score').style.display = "block";
         document.querySelector('.score').textContent = `${score}`;
+        if (score % 50 === 0 && time > 35) {
+            time = time - 5;
+        }
     } else {
         snake.pop();
     }
@@ -82,7 +86,7 @@ const main = () => {
         advanceSnake();
         drawSnake();
         main();
-    }, 100)
+    }, time)
 };
 
 
