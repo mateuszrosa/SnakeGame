@@ -63,7 +63,6 @@ class Snake {
             document.querySelector('.score').textContent = `${this.score}`;
             if (this.score % 50 === 0 && this.time > 35) {
                 this.time = this.time - 5;
-                console.log(this.time);
             }
 
         } else {
