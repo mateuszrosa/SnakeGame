@@ -12,6 +12,7 @@ let score = 0;
 let game;
 let time = 100;
 const keyboard = document.querySelector(".keyboard");
+const buttons = document.querySelectorAll(".keyboard button");
 
 start.addEventListener("click", e => {
   if (
@@ -187,4 +188,10 @@ window.addEventListener("resize", () => {
   } else {
     keyboard.style.display = "flex";
   }
+});
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", e => {
+    console.log(e.target.dataset.name);
+  });
 });
