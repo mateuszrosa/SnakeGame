@@ -191,7 +191,31 @@ window.addEventListener("resize", () => {
 });
 
 buttons.forEach(btn => {
+  const goingUp = dy === -10;
+  const goingDown = dy === 10;
+  const goingRight = dx === 10;
+  const goingLeft = dx === -10;
+
   btn.addEventListener("click", e => {
-    console.log(e.target.dataset.name);
+    console.log(changingDirection);
+    if (changingDirection) return;
+    changingDirection = true;
+
+    if (e.target.dataset.name === "left" && !goingRight) {
+      dx = -10;
+      dy = 0;
+    }
+    if (e.target.dataset.name === "up" && !goingDown) {
+      dx = 0;
+      dy = -10;
+    }
+    if (e.target.dataset.name === "right" && !goingLeft) {
+      dx = 10;
+      dy = 0;
+    }
+    if (e.target.dataset.name === "down" && !goingUp) {
+      dx = 0;
+      dy = 10;
+    }
   });
 });
