@@ -164,6 +164,8 @@ const endGame = () => {
 };
 
 const resetGame = () => {
+  dx = 10;
+  dy = 0;
   score = 0;
   snake = [
     { x: 150, y: 150 },
