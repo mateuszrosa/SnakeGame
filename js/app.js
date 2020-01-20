@@ -191,13 +191,11 @@ window.addEventListener("resize", () => {
 });
 
 buttons.forEach(btn => {
-  const goingUp = dy === -10;
-  const goingDown = dy === 10;
-  const goingRight = dx === 10;
-  const goingLeft = dx === -10;
-
   btn.addEventListener("click", e => {
-    console.log(changingDirection);
+    const goingUp = dy === -10;
+    const goingDown = dy === 10;
+    const goingRight = dx === 10;
+    const goingLeft = dx === -10;
     if (changingDirection) return;
     changingDirection = true;
 
