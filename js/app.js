@@ -13,6 +13,7 @@ let game;
 let time = 100;
 const keyboard = document.querySelector(".keyboard");
 const buttons = document.querySelectorAll(".keyboard button");
+const scoreBoard = document.querySelector(".score");
 
 start.addEventListener("click", e => {
   if (
@@ -20,8 +21,8 @@ start.addEventListener("click", e => {
     e.target.textContent === "Play Again"
   ) {
     if (e.target.textContent === "Play Again") {
-      document.querySelector(".score").style.display = "none";
-      document.querySelector(".score").textContent = ``;
+      scoreBoard.classList.remove("lost");
+      scoreBoard.textContent = ``;
     }
     main();
     e.target.textContent = "Pause";
@@ -60,8 +61,8 @@ const advanceSnake = () => {
   if (didEatFood) {
     createFood();
     score += 10;
-    document.querySelector(".score").style.display = "block";
-    document.querySelector(".score").textContent = `${score}`;
+    scoreBoard.style.display = "block";
+    scoreBoard.textContent = `${score}`;
     if (score % 50 === 0 && time > 35) {
       time = time - 5;
     }
@@ -78,10 +79,8 @@ const clearCanvas = () => {
 const main = () => {
   if (endGame()) {
     console.log("end");
-    document.querySelector(".score").style.display = "block";
-    document.querySelector(
-      ".score"
-    ).innerHTML = `You lost! Your result is <span>${score}</span> points.`;
+    scoreBoard.classList.add("lost");
+    scoreBoard.innerHTML = `You lost! Your result is <span>${score}</span> points.`;
     start.textContent = "Play Again";
     resetGame();
     return;
