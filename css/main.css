@@ -17,8 +17,8 @@ body {
 
 h1 {
     position: absolute;
-    top: 30px;
-    font-size: 50px;
+    top: 0;
+    font-size: 35px;
     text-transform: uppercase;
 }
 
@@ -28,9 +28,9 @@ canvas {
 
 .score {
     text-align: center;
-    font-size: 80px;
+    font-size: 40px;
     position: absolute;
-    top: 150px;
+    top: 40px;
     display: none;
 }
 
